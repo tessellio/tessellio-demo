@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tessellio — a surface painted from an update</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #e6e9ef;
+        --muted: #9aa3b2;
+        --line: #262b36;
+        --panel: #12151c;
+      }
+      body {
+        margin: 0;
+        padding: 2rem 1.5rem 3rem;
+        background: #0b0d12;
+        color: var(--ink);
+        font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      main {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.35rem;
+        font-weight: 620;
+        margin: 0 0 0.25rem;
+      }
+      p.lead {
+        color: var(--muted);
+        margin: 0 0 1.75rem;
+      }
+      .panes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .pane {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        padding: 0.85rem 1rem 1rem;
+      }
+      .pane h2 {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.7rem;
+      }
+      canvas {
+        display: block;
+        image-rendering: pixelated;
+        border-radius: 4px;
+        background: #000;
+      }
+      pre {
+        margin: 1.5rem 0 0;
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        color: var(--ink);
+        font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow-x: auto;
+      }
+      footer {
+        margin-top: 1.5rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      a {
+        color: #7fb2ff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Tessellio — a surface painted from an update</h1>
+      <p class="lead">
+        The left pane is the capture the sender encoded. The right pane is the surface the
+        receiver painted from the update that capture produced. The numbers below are what
+        the update cost.
+      </p>
+
+      <div class="panes">
+        <section class="pane">
+          <h2>The sender&rsquo;s capture</h2>
+          <canvas id="capture" width="320" height="180"></canvas>
+        </section>
+        <section class="pane">
+          <h2>The receiver&rsquo;s surface</h2>
+          <canvas id="surface" width="320" height="180"></canvas>
+        </section>
+      </div>
+
+      <pre id="report">painting…</pre>
+
+      <footer>
+        The codec is the published implementation, pinned by revision — see
+        <a href="https://github.com/tessellio/tessellio-core">tessellio-core</a> and
+        <a href="https://github.com/tessellio/tessellio-ts">tessellio-ts</a>. The
+        specification is <a href="https://github.com/tessellio/tessellio">tessellio</a>.
+      </footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
