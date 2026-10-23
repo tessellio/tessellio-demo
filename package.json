@@ -21,7 +21,7 @@
     "verify": "bash scripts/verify.sh"
   },
   "dependencies": {
-    "@tessellio/ts": "github:tessellio/tessellio-ts#bed451bcecab"
+    "@tessellio/ts": "github:tessellio/tessellio-ts#1dc8d788d7ff"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
